@@ -4,8 +4,8 @@ using UnityEngine;
 
 public class MainMenuCtrl : MonoBehaviour {
 
-    HudFacade hud = new HudFacade("MainMenu");
-
+    private HudFacade hud;
+    
     public void ChangeScene(string nameNextScene)
     {
         hud.SetNextScene(nameNextScene);
