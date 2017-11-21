@@ -24,7 +24,7 @@ public class RayView : MonoBehaviour {
 
         if(Physics.Raycast(lineOrigin, mainCamera.transform.forward, out hit, weaponrange))
         {
-           if(hit.collider.GetComponent<RayView>())
+           if(hit.collider.GetComponent<vidacontroller>())
            {
                 mira.color = Color.red;
            }

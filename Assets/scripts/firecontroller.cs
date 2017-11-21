@@ -3,7 +3,7 @@ using System.Collections;
 
 public class firecontroller : MonoBehaviour
 {
-    public float fireDamage = 5;
+    public int fireDamage = 5;
     public float fireRate = .25f;
     public float weaponRange = 50;
     public float hitForce = 10;
