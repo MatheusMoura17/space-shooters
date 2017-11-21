@@ -5,7 +5,7 @@ public class firecontroller : MonoBehaviour
 {
     public float fireDamage = 5;
     public float fireRate = .25f;
-    public float weapoRange = 50;
+    public float weaponRange = 50;
     public float hitForce = 10;
 
     public Transform spawnfire1;
@@ -15,7 +15,7 @@ public class firecontroller : MonoBehaviour
     private AudioSource fireAudio;
     private LineRenderer laserLine;
     private float nextFire;
-    private Camera naveCamera;
+    public Camera mainCamera;
 
     void Start() {
 
@@ -30,18 +30,18 @@ public class firecontroller : MonoBehaviour
             nextFire = Time.time + fireRate;
             StartCoroutine(FireEffects());
 
-            Vector3 rayOrigin = naveCamera.ViewportToWorldPoint(new Vector3(0.5f, 0.5f, 0));
+            Vector3 rayOrigin = mainCamera.ViewportToWorldPoint(new Vector3(0.5f, 0.5f, 0));
             RaycastHit hit;
             laserLine.SetPosition(0, spawnfire1.position);
             laserLine.SetPosition(0, spawnfire2.position);
 
-            if(Physics.Raycast(rayOrigin, naveCamera.transform.forward, out hit, weapoRange))
+            if(Physics.Raycast(rayOrigin, mainCamera.transform.forward, out hit, weaponRange))
             {
                 laserLine.SetPosition(1, hit.point);
             }
             else
             {
-                laserLine.SetPosition(1, rayOrigin + (naveCamera.transform.forward * weapoRange));
+                laserLine.SetPosition(1, rayOrigin + (mainCamera.transform.forward * weaponRange));
             }
         }
     }
