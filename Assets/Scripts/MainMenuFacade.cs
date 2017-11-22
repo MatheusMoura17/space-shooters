@@ -5,7 +5,7 @@ using UnityEngine.SceneManagement;
 
 public class MainMenuFacade : MonoBehaviour {
 
-    ChangeScene _changeScene;
+    public ChangeScene _changeScene;
 
     public void ChangeScene(string nameNextScene)
     {
@@ -15,10 +15,9 @@ public class MainMenuFacade : MonoBehaviour {
     public void QuitGame()
     {
         Application.Quit();
-    }
-
-    
+    }  
 }
+
 
 public class ChangeScene
 {
