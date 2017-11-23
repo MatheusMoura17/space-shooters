@@ -8,6 +8,10 @@ public class LoginFacade : MonoBehaviour {
 
 	public InputField userNameInput;
 
+	void Start(){
+		MusicManager.instance.PlayMusic (MusicManager.MusicNames.MENU);
+	}
+
     public void ChangeScene(string nameNextScene)
     {
 		SceneManager.LoadScene(nameNextScene);
