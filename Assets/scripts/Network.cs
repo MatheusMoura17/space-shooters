@@ -11,6 +11,8 @@ public class Network : Photon.PunBehaviour {
 	public Text message;
 	public string version = "0.1";
 
+	public GameObject gameManager;
+
 	private bool connected;
 	public bool Connected {
 		get {
@@ -32,10 +34,6 @@ public class Network : Photon.PunBehaviour {
 		ShowMessage ("Conectando ao photon...");
 		PhotonNetwork.autoJoinLobby = true;
 		PhotonNetwork.ConnectUsingSettings (version);
-	}
-
-	public void Login(string playerName){
-		PhotonNetwork.playerName = playerName;
 	}
 
 	private void ShowMessage(string text){
@@ -69,12 +67,14 @@ public class Network : Photon.PunBehaviour {
 	{
 		HideMessage ();
 		connected = true;
+		gameManager.SetActive (true);
 	}
 
 	public override void OnJoinedRoom ()
 	{
 		HideMessage ();
 		connected = true;
+		gameManager.SetActive (true);
 	}
 
 }

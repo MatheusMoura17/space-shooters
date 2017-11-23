@@ -19,8 +19,8 @@ public class LoginFacade : MonoBehaviour {
 
 	public void Login()
 	{
-		if (userNameInput.text != "" && userNameInput.text!=" " && Network.instance.Connected) {
-			Network.instance.Login (userNameInput.text);
+		if (userNameInput.text != "" && userNameInput.text!=" ") {
+			PhotonNetwork.playerName = userNameInput.text;
 			ChangeScene ("Game");
 		}
 	}

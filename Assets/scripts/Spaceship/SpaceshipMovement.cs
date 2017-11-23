@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class SpaceshipMovement : MonoBehaviour {
+public class SpaceshipMovement : Photon.MonoBehaviour {
 
 	public bool isLocal = true;
 
@@ -18,9 +18,18 @@ public class SpaceshipMovement : MonoBehaviour {
 	float restoreAnglesDamping=20;
 
 	public static Transform transformSpaceship;
+	public TextMesh textName;
 
 	void Start () {
 		transformSpaceship = transform;
+		isLocal = photonView.isMine;
+		if (isLocal)
+			photonView.RPC ("SetName", PhotonTargets.AllBufferedViaServer, PhotonNetwork.playerName);
+	}
+
+	[PunRPC]
+	public void SetName(string name){
+		textName.text = name;
 	}
 
 	void LateUpdate () {
@@ -54,22 +63,22 @@ public class SpaceshipMovement : MonoBehaviour {
 			// Subindo
 			if (Input.GetKey ("down")) {
 
-				if (verticalSpeed > -vertRotationLimit) {
+			//	if (verticalSpeed > -vertRotationLimit) {
 					verticalSpeed -= amountRotation * Time.deltaTime;
-				} else {
-					verticalSpeed = -vertRotationLimit;
-				}
+			//	} else {
+			//		verticalSpeed = -vertRotationLimit;
+			//	}
 			}
 
 
 			// Descendo
 			if (Input.GetKey ("up")) {
 
-				if (verticalSpeed < vertRotationLimit) {
+			//	if (verticalSpeed < vertRotationLimit) {
 					verticalSpeed += amountRotation * Time.deltaTime;
-				} else {
-					verticalSpeed = vertRotationLimit;
-				}
+			//	} else {
+			//		verticalSpeed = vertRotationLimit;
+			//	}
 			}
 
 
@@ -82,22 +91,22 @@ public class SpaceshipMovement : MonoBehaviour {
 			// Esquerda
 			if (Input.GetKey ("left")) {
 
-				if (horizontalSpeed > -horRotationLimit){
+			//	if (horizontalSpeed > -horRotationLimit){
 					horizontalSpeed -= amountRotation * Time.deltaTime;
-				} else {
-					horizontalSpeed = -horRotationLimit;
-				}
+			//	} else {
+			//		horizontalSpeed = -horRotationLimit;
+			//	}
 			}
 
 
 			// Direita
 			if (Input.GetKey ("right")) {
 
-				if (horizontalSpeed < horRotationLimit){
+				//if (horizontalSpeed < horRotationLimit){
 					horizontalSpeed += amountRotation * Time.deltaTime;
-				} else {
-					horizontalSpeed = horRotationLimit;
-				}
+				//} else {
+				//	horizontalSpeed = horRotationLimit;
+				//}
 			}
 
 			// Resetando a velocidade de rotação horizontal

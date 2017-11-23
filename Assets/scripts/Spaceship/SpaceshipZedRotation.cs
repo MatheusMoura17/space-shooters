@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class SpaceshipZedRotation : MonoBehaviour {
+public class SpaceshipZedRotation : Photon.MonoBehaviour {
 
 	// PS: Não há qualquer tutorial decente na internet sobre movimentação de aviões.
 	// PS2: Tomara que eu nunca mais pegue controles de naves 3D.
@@ -16,6 +16,10 @@ public class SpaceshipZedRotation : MonoBehaviour {
 	bool releasedRight = false;			// Se true, o jogador soltou o botão de seta para a direita
 
 	public float rotationAmount = 105.0f;		// Velocidade de rotação no eixo z
+
+	void Start(){
+		isLocal = photonView.isMine;
+	}
 
 	void LateUpdate()
 	{
