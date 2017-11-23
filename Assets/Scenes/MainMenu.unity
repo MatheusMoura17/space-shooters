@@ -184,7 +184,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 514089488}
+      - m_Target: {fileID: 0}
         m_MethodName: ChangeScene
         m_Mode: 5
         m_Arguments:
@@ -564,9 +564,10 @@ MonoBehaviour:
   m_GameObject: {fileID: 514089487}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 96726472187ab7642a8392e77b1434ae, type: 3}
+  m_Script: {fileID: 11500000, guid: 1ad4990603e4571428f2b7c64a08cf91, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  userNameInput: {fileID: 0}
 --- !u!4 &514089489
 Transform:
   m_ObjectHideFlags: 0
@@ -656,7 +657,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 514089488}
+      - m_Target: {fileID: 0}
         m_MethodName: QuitGame
         m_Mode: 1
         m_Arguments:
