@@ -27,7 +27,7 @@ public class SpaceshipMovement : MonoBehaviour {
 		if (isLocal) {		// Matheus pediu pra colocar
 
 			// Aceleração e desaceleração da nave
-			if (Input.GetKey ("space")) {		// Ao segurar espaço, a velocidade atual (power) irá aumentar gradativamente
+			if (Input.GetKey ("w")) {		// Ao segurar espaço, a velocidade atual (power) irá aumentar gradativamente
 
 				if (power < maxSpeed) {
 					power += Time.deltaTime * acceleration;
