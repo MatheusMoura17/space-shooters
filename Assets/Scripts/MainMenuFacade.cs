@@ -5,11 +5,9 @@ using UnityEngine.SceneManagement;
 
 public class MainMenuFacade : MonoBehaviour {
 
-    public ChangeScene _changeScene;
-
     public void ChangeScene(string nameNextScene)
     {
-        _changeScene.SetNextScene(nameNextScene);
+		SceneManager.LoadScene(nameNextScene);
     }
 
     public void QuitGame()
@@ -17,15 +15,5 @@ public class MainMenuFacade : MonoBehaviour {
         Application.Quit();
     }  
 }
-
-
-public class ChangeScene
-{
-    public void SetNextScene(string nameNextScene)
-    {
-        SceneManager.LoadScene(nameNextScene);
-    }
-}
-
 
 
