@@ -19,8 +19,9 @@ public class LoginFacade : MonoBehaviour {
 
 	public void Login()
 	{
-		if (userNameInput.text != "" && userNameInput.text!=" ") {
-			//checar login
+		if (userNameInput.text != "" && userNameInput.text!=" " && Network.instance.Connected) {
+			Network.instance.Login (userNameInput.text);
+			ChangeScene ("Game");
 		}
 	}
 }

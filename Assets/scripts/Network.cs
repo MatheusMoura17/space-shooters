@@ -23,11 +23,19 @@ public class Network : Photon.PunBehaviour {
 		panel.SetActive (false);
 		connected = false;
 	}
+
+	void Start(){
+		Connect ();
+	}
 	
 	public void Connect(){
 		ShowMessage ("Conectando ao photon...");
 		PhotonNetwork.autoJoinLobby = true;
 		PhotonNetwork.ConnectUsingSettings (version);
+	}
+
+	public void Login(string playerName){
+		PhotonNetwork.playerName = playerName;
 	}
 
 	private void ShowMessage(string text){
