@@ -15,6 +15,7 @@ public class SpaceshipMovement : MonoBehaviour {
 	float horizontalSpeed = 0.0f;			// Velocidade de rotação horizontal da nave
 	float vertRotationLimit = 1.5f;			// Limite da velocidade de rotação vertical da nave
 	float horRotationLimit = 1.0f;			// Limite de velocidade de rotação horizontal da nave
+	float restoreAnglesDamping=20;
 
 	public static Transform transformSpaceship;
 
@@ -58,9 +59,6 @@ public class SpaceshipMovement : MonoBehaviour {
 				} else {
 					verticalSpeed = -vertRotationLimit;
 				}
-
-				transform.Rotate (verticalSpeed, 0, 0);
-
 			}
 
 
@@ -72,8 +70,6 @@ public class SpaceshipMovement : MonoBehaviour {
 				} else {
 					verticalSpeed = vertRotationLimit;
 				}
-
-				transform.Rotate (verticalSpeed, 0, 0);
 			}
 
 
@@ -91,8 +87,6 @@ public class SpaceshipMovement : MonoBehaviour {
 				} else {
 					horizontalSpeed = -horRotationLimit;
 				}
-
-				transform.Rotate (0, horizontalSpeed, 0);
 			}
 
 
@@ -104,8 +98,6 @@ public class SpaceshipMovement : MonoBehaviour {
 				} else {
 					horizontalSpeed = horRotationLimit;
 				}
-
-				transform.Rotate (0, horizontalSpeed, 0);
 			}
 
 			// Resetando a velocidade de rotação horizontal
@@ -113,6 +105,7 @@ public class SpaceshipMovement : MonoBehaviour {
 				horizontalSpeed = 0;
 			}
 
+			transform.Rotate (verticalSpeed, horizontalSpeed, 0);
 
 		}
 	}
