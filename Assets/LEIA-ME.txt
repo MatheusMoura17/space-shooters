@@ -1,0 +1,36 @@
+---------------------------------------------------------------
+
+			Movimentação da nave
+
+---------------------------------------------------------------
+
+Controles:
+
+Seta para baixo: sobe
+Seta para cima: desce
+Seta para a esquerda: gira para a esquerda
+Seta para a direita: gira para a direita
+Barra de espaço: acelera
+
+
+1. O modelo 3D da nave não está com o pivô corretamente posicio-
+nado, então, foram usados dois pivôs:
+
+	Spaceship pivot: responsável por acelerar e girar a nave
+			 O script "SpaceshipMovement" vai aqui;
+
+	Spaceship pivot 2: responsável por girar a nave no eixo z
+			 o script "SpaceshipZedRotation" vai aqui.
+
+2. Hierarquia dos gameObjects:
+
+	Spaceship pivot		     (Script SpaceshipMovement)
+		>Spaceship camera    (câmera da nave)
+		>Spaceship pivot 2   (Script SpaceshipZedRotation)
+			>Spaceship   (modelo 3D da nave)
+				>default
+
+3. O gameObject "Scenario" é para simples teste da nave, apague;
+
+4. Os scripts estão comentados em português. Caso queiram polí-los,
+eles estão bem explicados (ou não).
