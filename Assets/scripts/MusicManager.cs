@@ -25,7 +25,7 @@ public class MusicManager : MonoBehaviour {
 		musicSource.playOnAwake = false;
 	}
 
-	public void PlayMenu(MusicNames music){
+	public void PlayMusic(MusicNames music){
 		if (currentMusic != music) {
 			
 			if(musicSource.isPlaying)
